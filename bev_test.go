@@ -7,7 +7,7 @@ import (
 	"math/rand"
 	"net"
 	_ "net/http/pprof"
-	"seasun/sync"
+	"sync"
 	"testing"
 	"time"
 )
@@ -257,8 +257,8 @@ func TestEchoTiny(t *testing.T) {
 }
 
 func TestEchoHuge(t *testing.T) {
-	eb, l := setupEchoServer(1024*1024*128, 1024*1024*64, 1024*1024*200)
-	setupEchoParallelClient(l, 100, [2]int{1024 * 1024 * 64, 1024 * 1024 * 512}, 1024*1024*1024*30, true, 0)
+	eb, l := setupEchoServer(1024*1024*16, 1024*1024*8, 1024*1024*200)
+	setupEchoParallelClient(l, 100, [2]int{1024 * 1024 * 1, 1024 * 1024 * 8}, 1024*1024*1024, true, 0)
 	closeEchoServer(eb, l)
 }
 

@@ -1,4 +1,5 @@
 // +build linux darwin netbsd freebsd openbsd dragonfly
+// +build !std
 
 package gbev
 
